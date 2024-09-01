@@ -5,13 +5,14 @@ const mongoose = require('mongoose');
 const otpRoutes = require('./Routes/otpRoutes');
 const phoneNumberRoutes = require('./Routes/phoneNumberRoutes');
 const contactRoutes = require('./Routes/contactRoutes');
+require('dotenv').config(); 
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB Atlas connection
-const mongoUri = 'mongodb+srv://yogeshwaranr2022cse:yogesh123@cluster0.yo41w.mongodb.net/'; // Replace with your MongoDB Atlas connection string
+const mongoUri = process.env.MONGO_URI; // Replace with your MongoDB Atlas connection string
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
